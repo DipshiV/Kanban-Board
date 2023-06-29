@@ -6,19 +6,24 @@ import { addTodo, addCard } from '../../store/listSlice'
 
 const Editable = ({ type, parentId }) => {
   const [inputVal, setInputVal] = useState("")
+
   const [isFormVisible, setIsFormVisible] = useState(false);
   const dispatch = useDispatch();
   function handleSubmit(e) {
     e.preventDefault();
     if (inputVal) {
-      if (type) {
-        dispatch(addCard({ id: Math.random(), title: inputVal, parentId: parentId }))
+      if (type === 'card') {
+        dispatch(addCard({   id: Math.random().toString(), currentDate :new Date().toLocaleString(), title: inputVal, parentId: parentId }))
       } else {
         dispatch(
           addTodo({
-            id: Math.random(),
+            id: Math.random().toString(),
+            currentDate :new Date().toLocaleString(),
             title: inputVal,
             description: '',
+            activity:'',
+            
+
           })
         );
       }
@@ -30,16 +35,14 @@ const Editable = ({ type, parentId }) => {
   return (
     <div >
 
-      <button onClick={() => setIsFormVisible(true)}> + Add {type ? "a card" : "another list"}</button>
+      <button  className ="m-3 p-1 bg-slate-500 shadow-md rounded-md " onClick={() => setIsFormVisible(true)}> + Add {type== 'card' ? "a card" : "another list"}</button>
       {isFormVisible && <form onSubmit={handleSubmit} className='mt-3'>
-        <input className='w-full h-10 p-2 ' value={inputVal} onChange={(e) => setInputVal(e.target.value)} placeholder={type ? "Enter Card Name" : "Enter List Name"} />
+        <input className='w-full h-10 p-2 bg-gray-400 text-pink-600 ' value={inputVal} onChange={(e) => setInputVal(e.target.value)} placeholder={type=='card' ? "Enter Card Name" : "Enter List Name"} />
         <div className='mt-3'>
-          <button className="mr-3 " onClick={() => setIsFormVisible(false)}><CgClose /></button>
-          <button className=' px-3 py-1 bg-blue-500' onClick={handleSubmit}>Add <AddIcon /></button>
+          <button className="mr-3 mt-1 bg-red-900 px-7 py-2 shadow-md  rounded-md" onClick={() => setIsFormVisible(false)}><CgClose /></button>
+          <button className=' px-3 py-1  mt-1 bg-green-900 shadow-md rounded-md' onClick={handleSubmit}>Add <AddIcon /></button>
         </div>
-
       </form>}
-
     </div>
   )
 }
