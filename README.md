@@ -1,5 +1,5 @@
 # Kanban-Board
-The Kanban Board is a visual tool that helps to manage work efficiently and effectively by visualizing the workflow and providing a clear picture of the status of each task
+The Kanban Board is a visual tool that helps to manage work efficiently and effectively by visualizing the workflow and providing a clear picture of the status of each task : TODO, InProgress & Done. 
 
 This project is to create multiple boards for different courses and subjects, with columns representing different stages of a task's life cycle such as To Do, In Progress, and Done. The project will also include features such as drag and drop functionality to easily move tasks between columns, adding due dates and priority levels to each task, and the ability to assign tasks to specific team members or collaborators
 
@@ -14,6 +14,7 @@ tailwind CSS
 react-beautiful-dnd
 
 # deployment Link
+https://trello-123-git-kanban-2-dipshiv.vercel.app/
 
 
 
