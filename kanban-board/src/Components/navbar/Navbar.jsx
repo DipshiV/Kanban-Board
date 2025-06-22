@@ -107,9 +107,7 @@ const Navbar = () => {
               }}
             >
               <MenuItem onClick={handleClose}>Dipshi Verma</MenuItem>
-              <MenuItem onClick={handleClose}>Vikas Piplodia</MenuItem>
-              <MenuItem onClick={handleClose}>Suraj Neharkar</MenuItem>
-              <MenuItem onClick={handleClose}>Anoop AG</MenuItem>
+             
             </Menu>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
